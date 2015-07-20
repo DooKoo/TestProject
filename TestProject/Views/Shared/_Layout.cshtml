@@ -1,0 +1,9 @@
+﻿@{
+    ViewBag.Title = "Layout";
+}
+@RenderBody()
+@try
+{
+    @RenderSection("Scripts")
+}
+catch (HttpException) { }

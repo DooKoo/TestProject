@@ -1,0 +1,29 @@
+﻿@model TestProject.Models.ViewModels.SubjectViewModel
+
+@{
+    ViewBag.Title = "Step 3";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create Step 3</h2>
+
+<fieldset>
+    <legend>Subject</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

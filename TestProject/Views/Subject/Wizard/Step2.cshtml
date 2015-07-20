@@ -1,0 +1,41 @@
+﻿@using TestProject.Models
+@model TestProject.Models.ViewModels.SubjectViewModel
+
+@{
+    ViewBag.Title = "Step 2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create Step 2</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Subject</legend>
+        <div>
+            @Html.LabelFor(model => model.Students)
+            @Html.ListBoxFor(i => i.Students, new MultiSelectList((IEnumerable<Student>)ViewBag.Students,
+        "Id", "Surname"), new
+        {
+            data_placeholder = "Choose students",
+            multiple = "multiple",
+            @class = "chosen"
+        })
+
+            @Html.ValidationMessageFor(model => model.Students)
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
